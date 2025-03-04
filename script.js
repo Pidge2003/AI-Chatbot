@@ -2,6 +2,10 @@ const messageInput = document.querySelector(".message-input");
 const chatBody = document.querySelector(".chat-body");
 const sendMessageButton = document.querySelector("#send-message");
 
+// API setup
+const API_KEY = "AIzaSyB81sZHazL6ANSNQM1PLHmX08Uj4ap8Ykk";
+const API_URL = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${API_KEY}"`;
+
 const userData = {
     message: null
 }
@@ -12,6 +16,10 @@ const createMessageElement = (content, ...classes) => {
     div.classList.add("message", ...classes);
     div.innerHTML = content;
     return div;
+}
+
+const generateBotResponse = () => {
+
 }
 
 // Handles Outoging User messages
@@ -44,6 +52,7 @@ const handleOutgoingMessage = (e) => {
 
         const incomingMessageDiv = createMessageElement(messageContent, "bot-message", "thinking");
         chatBody.appendChild(incomingMessageDiv);
+        generateBotResponse();
     }, 600);
 }
 
