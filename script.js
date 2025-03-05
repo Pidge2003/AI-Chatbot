@@ -41,10 +41,12 @@ const generateBotResponse = async (incomingMessageDiv) => {
         if(!response.ok) throw new Error(data.error)
 
     // Extract and display bots text     
-    const apiResponseText = data.candidates[0].content.parts[0].text.trim();
+    const apiResponseText = data.candidates[0].content.parts[0].text.replace(/\*\*(.*?)\*\*/g, "$1").trim();
     messageElement.innerText = apiResponseText;
-    }catch (error) {
+    } catch (error) {
     console.log(error);
+    } finally {
+    incomingMessageDiv.classList.remove("thinking");
     }
 }
 
