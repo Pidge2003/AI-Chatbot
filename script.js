@@ -1,6 +1,7 @@
 const messageInput = document.querySelector(".message-input");
 const chatBody = document.querySelector(".chat-body");
 const sendMessageButton = document.querySelector("#send-message");
+const fileInput = document.querySelector("#file-input");
 
 // API setup
 const API_KEY = "AIzaSyB81sZHazL6ANSNQM1PLHmX08Uj4ap8Ykk";
@@ -97,4 +98,7 @@ messageInput.addEventListener("keydown", (e) => {
     }
 });
 
-sendMessageButton.addEventListener("click", (e) => handleOutgoingMessage(e)) 
+sendMessageButton.addEventListener("click", (e) => handleOutgoingMessage(e));
+
+// File upload functionality
+document.querySelector("#file-upload").addEventListener("click", () => fileInput.click());
