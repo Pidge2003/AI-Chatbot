@@ -11,7 +11,7 @@ const userData = {
     message: null,
     file: {
         data: null,
-        mime_type:null
+        mime_type: null
     }
 }
 
@@ -34,7 +34,7 @@ const generateBotResponse = async (incomingMessageDiv) => {
         headers: { "Content-Type": "application/json"},
         body: JSON.stringify({
             contents: [{
-                parts: [{text: userData.message},  ...(userData.file.data ? [{inline_data : userData.file}] : [])]
+                parts: [{text: userData.message},  ...(userData.file.data ? [{ inline_data : userData.file}] : [])]
             }]
         })
     }
@@ -115,11 +115,9 @@ fileInput.addEventListener("change", () => {
 
         // Stores file in user data
         userData.file = {
-            data: null,
-            mime_type: null
+            data: base64string,
+            mime_type: file.type
         }
-
-        fileInput.value = "";
     } 
 });
 
