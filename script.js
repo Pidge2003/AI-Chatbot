@@ -102,8 +102,6 @@ messageInput.addEventListener("keydown", (e) => {
     }
 });
 
-sendMessageButton.addEventListener("click", (e) => handleOutgoingMessage(e));
-
 // File upload functionality
 fileInput.addEventListener("change", () => {
     const file = fileInput.files[0];
@@ -118,7 +116,13 @@ fileInput.addEventListener("change", () => {
             data: base64string,
             mime_type: file.type
         }
+
+        fileInput.value = "";
     } 
+
+    reader.readAsDataURL(file);
 });
 
+sendMessageButton.addEventListener("click", (e) => handleOutgoingMessage(e));
 document.querySelector("#file-upload").addEventListener("click", () => fileInput.click());
+
