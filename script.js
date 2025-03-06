@@ -8,7 +8,11 @@ const API_KEY = "AIzaSyB81sZHazL6ANSNQM1PLHmX08Uj4ap8Ykk";
 const API_URL = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
 
 const userData = {
-    message: null
+    message: null,
+    file: {
+        data: null,
+        mime_type:null
+    }
 }
 
 // Create message element with dynamic classes
@@ -30,7 +34,7 @@ const generateBotResponse = async (incomingMessageDiv) => {
         headers: { "Content-Type": "application/json"},
         body: JSON.stringify({
             contents: [{
-                parts: [{text: userData.message}]
+                parts: [{text: userData.message},  ...(userData.file.data ? [{inline_data : userData.file}] : [])]
             }]
         })
     }
@@ -101,4 +105,22 @@ messageInput.addEventListener("keydown", (e) => {
 sendMessageButton.addEventListener("click", (e) => handleOutgoingMessage(e));
 
 // File upload functionality
+fileInput.addEventListener("change", () => {
+    const file = fileInput.files[0];
+    if(!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+        const base64string = e.target.result.split(",")[1];
+
+        // Stores file in user data
+        userData.file = {
+            data: null,
+            mime_type: null
+        }
+
+        fileInput.value = "";
+    } 
+});
+
 document.querySelector("#file-upload").addEventListener("click", () => fileInput.click());
