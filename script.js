@@ -66,7 +66,7 @@ const handleOutgoingMessage = (e) => {
 
     // Create and Display user message
     const messageContent = `<div class="message-text"></div>
-    ${userData.file.data ? `<img src="data:${userData.file.mime_type};base64,${userData.file.data}" />` : ""}`;
+    ${userData.file.data ? `<img src="data:${userData.file.mime_type};base64,${userData.file.data}" class"attachment" />` : ""}`;
 
     const outgoingMessageDiv = createMessageElement(messageContent, "user-message");
     outgoingMessageDiv.querySelector(".message-text").innerText = userData.message;
