@@ -252,16 +252,21 @@ chat-form .chat-controls #send-message:hover{
     background: #f1f1ff;
 }
 
-.chat-form .file-upload-wrapper{
+.chat-form .file-upload-wrapper {
     height: 35px;
     width: 35px;
     position: relative;
-}
-
-.chat-form .file-upload-wrapper img{
+  }
+  
+  .chat-form .file-upload-wrapper img {
     position: absolute;
+    display: none;
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
-}
+  }
+  
+  .chat-form .file-upload-wrapper.file-uploaded img {
+    display: block; 
+  }
