@@ -3,6 +3,7 @@ const chatBody = document.querySelector(".chat-body");
 const sendMessageButton = document.querySelector("#send-message");
 const fileInput = document.querySelector("#file-input");
 const fileUploadWrapper = document.querySelector(".file-upload-wrapper");
+const fileCancelButton = document.querySelector("#file-cancel");
 
 // API setup
 const API_KEY = "AIzaSyB81sZHazL6ANSNQM1PLHmX08Uj4ap8Ykk";
@@ -128,6 +129,12 @@ fileInput.addEventListener("change", () => {
     } 
 
     reader.readAsDataURL(file);
+});
+
+// Cancel file upload
+fileCancelButton.addEventListener("click", () => {
+    userData.file = {};
+    fileUploadWrapper.classList.remove("file-uploaded");
 });
 
 sendMessageButton.addEventListener("click", (e) => handleOutgoingMessage(e));
