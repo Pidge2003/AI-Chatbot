@@ -145,7 +145,7 @@ const picker = new EmojiMart.Picker({
     previewPosition: "none"
 });
 
-document.querySelector(."chat-form").appendChild(picker);
+document.querySelector(".chat-form").appendChild(picker);
 
 sendMessageButton.addEventListener("click", (e) => handleOutgoingMessage(e));
 document.querySelector("#file-upload").addEventListener("click", () => fileInput.click());
