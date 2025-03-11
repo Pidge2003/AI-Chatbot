@@ -18,10 +18,11 @@ body{
 #chatbot-toggler{
     position: fixed;
     bottom: 30px;
-    right: 25px;
+    right: 35px;
     border: none;
     height: 50px;
     width: 50px;
+    display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
