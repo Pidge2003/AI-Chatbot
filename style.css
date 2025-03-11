@@ -257,6 +257,14 @@ body.show-chatbot .chatbot-popup{
     padding: 14px 0 13px 18px;
     border-radius: inherit;
     resize: none;
+    max-height: 180px;
+    white-space: pre-line;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+}
+
+.chat-form .message-input:hover{
+    scrollbar-color: #ccccf5 transparent;
 }
 
 .chat-form .chat-controls{
