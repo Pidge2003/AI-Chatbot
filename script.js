@@ -4,7 +4,9 @@ const sendMessageButton = document.querySelector("#send-message");
 const fileInput = document.querySelector("#file-input");
 const fileUploadWrapper = document.querySelector(".file-upload-wrapper");
 const fileCancelButton = document.querySelector("#file-cancel");
-const chatbotToggler = document.querySelector("#chatbot-toggler");
+const chatbotToggler = document.querySelector("#chatbot-toggler")
+const closeChatbot = document.querySelector("#close-chatbot");
+
 
 // API setup
 const API_KEY = "AIzaSyB81sZHazL6ANSNQM1PLHmX08Uj4ap8Ykk";
@@ -163,4 +165,4 @@ document.querySelector(".chat-form").appendChild(picker);
 sendMessageButton.addEventListener("click", (e) => handleOutgoingMessage(e));
 document.querySelector("#file-upload").addEventListener("click", () => fileInput.click());
 chatbotToggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));
-
+closeChatbot.addEventListener("click", () => document.body.classList.remove("show-chatbot"));
